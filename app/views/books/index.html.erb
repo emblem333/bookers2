@@ -4,3 +4,55 @@
 <!--fieldとsubmitの記述が正しく実装されている-->
 <!--controllerの定義が正しい-->
 <!--レイアウトが整っている-->
+<div class="container">
+  <div class="row">
+      <div class="col-lg-4">
+               <!--エラーメッセージ-->
+        <%= render "books/error_message" %>
+
+        <!--プロフィール（部分テンプレート）-->
+        <%= render "users/userinfo",user:@user %>
+
+         <!--投稿フォーム（部分テンプレート）-->
+        <%= render "books/booksubmit",book:@book %>
+      </div>
+
+    <div class="col-lg-8">
+      <!--見出し-->
+      <h1>Books</h1>
+      <table class="table">
+        <!--テーブルのヘッダー-->
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <!--実データ-->
+        <% @books.each do |book| %>
+          <tbody>
+            <tr>
+              <td>
+                <!--ユーザー詳細にリンク-->
+                <%= link_to user_path(book.user.id) do %>
+                  <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg",size:'60x60' %>
+                <% end %>
+              </td>
+
+              <td>
+                <!--ブック詳細にリンク-->
+                <%= link_to book_path(book.id) do %>
+                  <%= book.title %>
+                <% end %>
+              </td>
+              
+              <td><%= book.body %></td>
+              
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
