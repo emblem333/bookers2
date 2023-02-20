@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    @books = Book.all
+    #@books = Book.all
     @user = current_user
   end
 
@@ -45,8 +45,8 @@ class BooksController < ApplicationController
   def update
       @book = Book.find(params[:id])
     if @book.update(book_params)
-      redirect_to book_path(@book.id)
       flash[:success]="You have updated book successfully."
+      redirect_to book_path(@book.id)
     end
   end
 
@@ -68,10 +68,9 @@ class BooksController < ApplicationController
   end
 
   def is_matching_login_user
-  user_id = params[:id].to_i
-  unless user_id == current_user.id
-    redirect_to post_images_path
+    @book = Book.find(params[:id])
+    unless @book.user_id == current_user.id
+      #redirect_to user_path(current_user.id)
+    end
   end
-  end
-
 end

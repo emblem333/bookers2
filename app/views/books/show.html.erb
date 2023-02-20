@@ -20,7 +20,6 @@
               <tr>
                 <td>
                   <%= link_to user_path(@book.user.id) do %>
-
                     <%= @book.user.name %>
                   <% end %>
                   </a>
@@ -31,9 +30,7 @@
                 <td><%= @book.body %></td>
                 <!--編集(edit)-->
                 <td>
-                  <% if @book.user == current_user %>
                     <%= link_to "Edit",edit_book_path(@book),class:"btn btn-success" %>
-                  <% end %>
                 </td>
                 <!--削除(destroy)-->
                 <td>
