@@ -11,10 +11,10 @@
         <%= render "books/error" %>
 
         <!--プロフィール（部分テンプレート）-->
-        <%= render "users/info",user:@user %>
+        <%= render "users/info",user: current_user %>
 
          <!--投稿フォーム（部分テンプレート）-->
-        <%= render "books/book",book:@book %>
+        <%= render "books/book",book: @book %>
       </div>
 
     <div class="col-lg-8">
@@ -35,10 +35,8 @@
             <tr>
               <td>
                 <!--ユーザー詳細にリンク-->
-                <% if @user.profile_image.attached? %>
-                  <%= image_tag @user.profile_image, size: "80x80" %>
-                <% else %>
-                  <%= image_tag 'no_image', size: "80x80" %>
+                <%= link_to user_path(book.user.id) do %>
+                  <%= image_tag book.user.get_profile_image(80,80) %>
                 <% end %>
               </td>
 
