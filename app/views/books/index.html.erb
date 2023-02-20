@@ -35,8 +35,10 @@
             <tr>
               <td>
                 <!--ユーザー詳細にリンク-->
-                <%= link_to user_path(book.user.id) do %>
-                  <td><%= image_tag profile_image.user %> <!-- :fill, 60, 60, fallback: "no_image.jpg",size:'80x80' -->
+                <% if @user.profile_image.attached? %>
+                  <%= image_tag @user.profile_image, size: "80x80" %>
+                <% else %>
+                  <%= image_tag 'no_image', size: "80x80" %>
                 <% end %>
               </td>
 

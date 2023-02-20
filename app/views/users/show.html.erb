@@ -24,26 +24,25 @@
           </tr>
         </thead>
         <!--実データ-->
-        <% @books.each do |book| %>
+        <% @books.each do |books| %>
           <tbody>
             <tr>
               <td>
-                <!--ユーザー詳細にリンク-->
-                <%= link_to user_path(@user.id) do %>
-                 
+                 <%= link_to user_path(books.user.id) do %>
+                  <%= image_tag books.user.get_profile_image(80, 80) %>
                 <% end %>
               </td>
 
               <td>
                 <!--タイトルブック詳細にリンク-->
-                <%= link_to book_path(book.id) do %>
-                  <%= book.title %>
+                <%= link_to book_path(books.id) do %>
+                  <%= books.title %>
                 <% end %>
               </td>
 
               <td>
                 <!--詳細-->
-                <%= book.body %>
+                <%= books.body %>
               </td>
             </tr>
           </tbody>

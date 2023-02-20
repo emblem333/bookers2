@@ -1,20 +1,26 @@
 <h1>User info</h1>
   <table class="table">
     <tr>
-  <p>画像</p>
       <% if user.profile_image.attached? %>
         <%= image_tag user.profile_image, size: "200x200" %>
       <% else %>
         <%= image_tag 'no_image', size: "200x200" %>
       <% end %>
-      <td></td>
+    </tr>
+    <tbody>
+      <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
     </tr>
     <tr>
-      <td>name</td>
       <td>introduction</td>
+      <td><%#= user.introduction %></td>
     </tr>
-    <tr>
-      <td><%= user.name %></td>
-      <td><%= user.introduction %></td>
-    </tr>
+    </tbody>
+
   </table>
+  <%= link_to edit_user_path(user.id),class:"btn btn-block btn-outline-secondary p-0 mt-3" do %>
+       <i class="fas fa-user-cog"></i>
+
+  <% end %>

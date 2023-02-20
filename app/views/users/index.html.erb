@@ -35,17 +35,17 @@
           </tr>
         </thead>
         <!--実データ-->
-        <% @users.each do |user| %>
+        <% @users.each do |users| %>
           <tbody>
             <tr>
               <td>
                 <!--ユーザー画像-->
-            <p><%= image_tag other_profile_image.user .get_profile_image(100,100) %></p>
+            <p><%= image_tag users.get_profile_image(100,100) %></p>
               </td>
 
               <td>
                 <!--ユーザー名-->
-                  <%= user.name %>
+                  <%= users.name %>
               </td>
 
               <td>
