@@ -1,3 +1,4 @@
+<div class="pt-5 pl-5">
 <h2>Log in</h2>
 
 <%= form_with model: @user, url: user_session_path do |f| %>
@@ -20,8 +21,9 @@
   <% end %>
 
   <div class="actions" >
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in",class:"btn btn-sm btn-primary"%>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

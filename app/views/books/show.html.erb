@@ -1,13 +1,11 @@
-<!--
-本の詳細
--->
+<!--本の詳細-->
 <div class="container pt-3 pb-5">
   <div class="row">
     <div class="col-md-3 pr-1">
       <!--プロフィール（部分テンプレート）-->
-      <%= render "users/info",user:@user %>
+      <%= render "users/info",user: @user %>
       <!--投稿フォーム（部分テンプレート）-->
-      <%= render "books/book",book:@book_new %>
+      <%= render "books/book",book: @book_show %>
     </div>
 
     <div class="col-md-8 offset-md-1">
@@ -19,8 +17,9 @@
             <tbody>
               <tr>
                 <td>
-                  <%= link_to user_path(@book.user.id) do %>
-                    <%= @book.user.name %>
+                  <%= image_tag @user.get_profile_image(80,80) %>
+                  <%= link_to user_path(@book.user.id) do %></br>
+                  <%= @book.user.name %>
                   <% end %>
                   </a>
                 </td>

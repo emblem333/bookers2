@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
-    #@books = Book.all
+    @books = Book.all
     @user = current_user
   end
 
@@ -22,8 +22,8 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
     if @book.save
     # 4. トップ画面へリダイレクト
-      flash[:notice] = "Book was successfully created."
       redirect_to book_path(@book.id)
+      flash[:notice] = "Book was successfully created."
     else
       @books = Book.all
       @user = current_user
@@ -36,6 +36,7 @@ class BooksController < ApplicationController
     # テンプレート化するために、@userに@book.userを格納
     @user = @book.user
     # show内（book詳細）に投稿を置く場合、newが必要
+    @book_show = Book.new
   end
 
   def edit
@@ -47,6 +48,8 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       flash[:success]="You have updated book successfully."
       redirect_to book_path(@book.id)
+    else
+      render :edit
     end
   end
 
