@@ -1,6 +1,4 @@
 <!--投稿フォーム-->
-
-<!--エラーメッセージ-->
 <%#= render "books/error_message",class:"text-danger" %>
 
 <div class="container pt-3 pb5">
@@ -9,7 +7,7 @@
    
    <h1>Editing Book</h1>
 
-   <%= render "books/error"%>
+   <%= render "books/error"%><!--エラー-->
  
    <%= form_with model: @book,local:true do |f| %>
     <div class="form-group">

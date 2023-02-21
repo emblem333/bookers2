@@ -1,21 +1,14 @@
-<!--
-マイページ
--->
+<!--マイページ-->
 <div class="container pt-3 pb-5">
   <div class="row">
     <div class="col-md-3 pr-1">
-      <!--プロフィール（部分テンプレート）-->
-      <%= render "users/info",user:@user %>
+      <%= render "users/info",user:@user %><!--プロフィール（部分テンプレート）-->
 
-      <!--投稿フォーム（部分テンプレート）-->
-      <%= render "books/book",book:@book %>
+      <%= render "books/book",book:@book %><!--投稿フォーム（部分テンプレート）-->
     </div>
-  <!--自分の投稿一覧-->
     <div class="col-md-8 offset-md-1">
-      <!--見出し-->
       <h1>Books</h1>
-      <table class="table">
-        <!--テーブルのヘッダー-->
+      <table class="table"><!--テーブルのヘッダー-->
         <thead>
           <tr>
             <th></th>
@@ -29,17 +22,14 @@
             <tr>
               <td>
                  <%= link_to user_path(books.user.id) do %>
-                  <%= image_tag books.user.get_profile_image(80, 80) %>
+                  <%= image_tag books.user.get_profile_image(80, 80) %><!--ユーザー画像-->
                 <% end %>
               </td>
-
               <td>
-                <!--タイトルブック詳細にリンク-->
-                <%= link_to book_path(books.id) do %>
+                <%= link_to book_path(books.id) do %><!--タイトルブック詳細にリンク-->
                   <%= books.title %>
                 <% end %>
               </td>
-
               <td>
                 <!--詳細-->
                 <%= books.body %>

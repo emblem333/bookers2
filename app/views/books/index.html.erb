@@ -7,21 +7,18 @@
 <div class="container pt-3 pb-5">
   <div class="row">
       <div class="col-md-3 pr-1">
-               <!--エラーメッセージ-->
-        <%= render "books/error" %>
 
-        <!--プロフィール（部分テンプレート）-->
-        <%= render "users/info",user: current_user %>
+        <%= render "books/error" %><!--エラーメッセージ-->
 
-         <!--投稿フォーム（部分テンプレート）-->
-        <%= render "books/book",book: @book %>
+        <%= render "users/info",user: current_user %><!--プロフィール（部分テンプレート）-->
+
+        <%= render "books/book",book: @book %><!--投稿フォーム（部分テンプレート）-->
       </div>
 
     <div class="col-md-8 offset-md-1">
-      <!--見出し-->
-      <h1>Books</h1>
-      <table class="table">
-        <!--テーブルのヘッダー-->
+      
+      <h1>Books</h1><!--見出し-->
+      <table class="table"> <!--テーブルのヘッダー-->
         <thead>
           <tr>
             <th></th>
