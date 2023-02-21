@@ -29,7 +29,9 @@
                 <td><%= @book.body %></td>
                 <!--編集(edit)-->
                 <td>
+                  <% if @book.user == current_user %>
                     <%= link_to "Edit",edit_book_path(@book),class:"btn btn-success" %>
+                  <% end %>
                 </td>
                 <!--削除(destroy)-->
                 <td>
